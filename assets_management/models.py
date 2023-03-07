@@ -44,6 +44,7 @@ class Device(models.Model):
 class Assignment(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
     checkout_time = models.DateTimeField()
     checkin_time = models.DateTimeField(null=True, blank=True)
     condition = models.TextField(null=True, blank=True)
