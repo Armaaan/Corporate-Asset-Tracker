@@ -1,6 +1,6 @@
 [run]
 source =
-    assets_management
+    assets_management/
 
 omit =
    */migrations/*
