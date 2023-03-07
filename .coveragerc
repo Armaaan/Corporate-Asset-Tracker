@@ -1,0 +1,12 @@
+[run]
+source =
+    assets_management
+
+omit =
+   */migrations/*
+   manage.py
+
+[report]
+fail_under = 20
+show_missing = True
+skip_covered = True
