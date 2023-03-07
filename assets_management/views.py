@@ -1,4 +1,6 @@
-from rest_framework import generics
+from rest_framework import generics, status
+from rest_framework.response import Response
+
 from .models import Company, Employee, Device, Assignment
 from .serializers import CompanySerializer, EmployeeSerializer, DeviceSerializer, AssignmentSerializer
 
@@ -8,6 +10,23 @@ class CompanyListCreateView(generics.ListCreateAPIView):
     list of all companies or create a new company respectively. """
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
+
+    def get_queryset(self):
+        queryset = Company.objects.all()
+        # Add your filtering logic here
+        query_param = self.request.query_params.get(self.request.user.company.id)
+        if query_param:
+            queryset = queryset.filter(my_field=query_param)
+        return queryset
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        # Here you can add any custom logic before saving the object,
+        # such as setting default fields or validating certain fields
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class CompanyRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
