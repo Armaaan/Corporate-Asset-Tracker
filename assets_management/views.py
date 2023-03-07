@@ -13,10 +13,10 @@ class CompanyListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         queryset = Company.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
 
     def create(self, request, *args, **kwargs):
@@ -37,10 +37,10 @@ class CompanyRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         queryset = Company.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
 
 
@@ -52,10 +52,10 @@ class EmployeeListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         queryset = Employee.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
 
     def create(self, request, *args, **kwargs):
@@ -76,10 +76,10 @@ class EmployeeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         queryset = Employee.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
 
 
@@ -91,10 +91,10 @@ class DeviceListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         queryset = Device.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
 
     def create(self, request, *args, **kwargs):
@@ -115,10 +115,10 @@ class DeviceRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         queryset = Device.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
 
 
@@ -130,10 +130,10 @@ class AssignmentListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         queryset = Employee.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
 
     def create(self, request, *args, **kwargs):
@@ -154,8 +154,8 @@ class AssignmentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView)
 
     def get_queryset(self):
         queryset = Assignment.objects.all()
-        # Add filtering logic here
-        query_param = self.request.query_params.get(self.request.user.company.id)
-        if query_param:
-            queryset = queryset.filter(my_field=query_param)
+        # Ensure each one can see their own data only
+        # query_param = self.request.query_params.get(self.request.user.company.id)
+        # if query_param:
+        #     queryset = queryset.filter(my_field=query_param)
         return queryset
