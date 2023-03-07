@@ -1,4 +1,5 @@
 from django.urls import path
+from .swagger import schema_view
 from .views import (
     CompanyListCreateView,
     CompanyRetrieveUpdateDestroyView,
@@ -11,6 +12,8 @@ from .views import (
 )
 
 urlpatterns = [
+    # Automated API documentation URL
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     # Company URLs
     path('companies/', CompanyListCreateView.as_view(), name='company_list_create'),
     path('companies/<int:pk>/', CompanyRetrieveUpdateDestroyView.as_view(), name='company_retrieve_update_destroy'),
